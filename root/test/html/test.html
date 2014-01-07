@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <title>Ceci Button Tests</title>
+  <script src="../../tools/iframe-utils.js"></script>
+  <link rel="import" href="../../../appmaker/public/ceci/ceci-element.html">
+  <link rel="import" href="../../../appmaker/public/ceci/ceci-element-base.html">
+  <link rel="import" href="../../../appmaker/public/ceci/ceci-broadcast.html">
+  <link rel="import" href="../../../appmaker/public/ceci/ceci-listen.html">
+  <!-- This is the component we're actually testing -->
+  <link rel="import" href="../../component.html">
+  <script src="../../../appmaker/public/vendor/polymer/polymer.min.js"></script>
+</head>
+<body>
+  <!-- The skeleton app we'll be using to test -->
+  <ceci-button id="ceci-button" value="you must construct additional pylons"></ceci-button>
+  <script>
+    iframeTestUtils(function () {
+      test('Sanity Check', function (done) {
+        var buttonElement = document.querySelector('ceci-button');
+        chai.assert(buttonElement.$.button, 'Button recognized and exposed by Polymer.');
+        chai.assert(buttonElement.ceci.broadcasts, 'Ceci broadcasts publicized.');
+        chai.assert(buttonElement.ceci.listeners, 'Ceci listeners publicized.');
+        done();
+      });
+    });
+  </script>
+</body>
+</html>
