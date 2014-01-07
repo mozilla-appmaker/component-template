@@ -35,11 +35,29 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
-      'grunt-contrib-concat': '~0.3.0',
-      'grunt-contrib-uglify': '~0.2.0',
-      'grunt-contrib-jshint': '~0.6.0',
-      'grunt-contrib-nodeunit': '~0.2.0',
-      'grunt-contrib-watch': '~0.4.0',
+      "mocha": "~1.14.0",
+      "karma-script-launcher": "*",
+      "karma-chrome-launcher": "~0.1.0",
+      "karma-firefox-launcher": "~0.1.0",
+      "karma-html2js-preprocessor": "~0.1.0",
+      "karma-jasmine": "~0.1.3",
+      "karma-requirejs": "~0.1.0",
+      "karma-coffee-preprocessor": "~0.1.0",
+      "karma-phantomjs-launcher": "~0.1.0",
+      "karma": "~0.10.4",
+      "karma-mocha": "~0.1.0",
+      "chai": "~1.8.1",
+      "karma-ie-launcher": "*",
+      "karma-safari-launcher": "*",
+      "karma-crbot-reporter": "*",
+      "karma-browserstack-launcher": "0.0.4",
+      "karma-ios-launcher": "0.0.3",
+      "open": "0.0.4",
+      "grunt": "~0.4.2",
+      "grunt-karma": "~0.6.2",
+      "grunt-contrib-connect": "~0.5.0",
+      "grunt-open": "~0.2.2",
+      "grunt-contrib-watch": "~0.5.3"
     };
 
     // Files to copy (and process).
