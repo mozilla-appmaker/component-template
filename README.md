@@ -17,10 +17,10 @@ To use it:
 
 and when you're ready to commit to github, go to Github and:
 
-- [ ] create a repo 
-- [ ] make a gh-pages branch
-- [ ] make the gh-pages branch be the default
-- [ ] remove the master branch
+ - create a repo 
+ - make a gh-pages branch
+ - make the gh-pages branch be the default
+ - remove the master branch
 
 and then commit your code to the gh-pages branch:
 
