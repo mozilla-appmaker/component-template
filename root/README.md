@@ -1,18 +1,18 @@
-component-button
+{%= name %}
 ================
 
-[![Build Status](https://travis-ci.org/mozilla-appmaker/component-button.png)](https://travis-ci.org/mozilla-appmaker/component-button)
+[![Build Status](https://travis-ci.org/mozilla-appmaker/{%= name %}.png)](https://travis-ci.org/mozilla-appmaker/{%= name %})
 
-Basic button component for [Appmaker](https://github.com/mozilla-appmaker/appmaker).
+A web component for [Appmaker](https://github.com/mozilla-appmaker/appmaker).
 
 Appmaker import:
 ```
-<link rel="import" href="/component-button">
+<link rel="import" href="/{%= name %}">
 ```
 
 # Test Status
 
-See the github page http://mozilla-appmaker.github.io/component-button/ for test status.
+See the github page http://mozilla-appmaker.github.io/{%= name %}/ for test status.
 
 # Installation
 `component.html` can be served from this repo without any setup. However, `Polymer` and `ceci-element` must be exposed for the component to function. The instructions below detail a full development/testing environment.
@@ -27,7 +27,7 @@ cd mozilla-appmaker
 
 Clone this repo:
 ```
-git clone git@github.com:mozilla-appmaker/component-button.git
+git clone git@github.com:mozilla-appmaker/{%= name %}.git
 ```
 
 Clone the `tools` repo:
@@ -40,17 +40,17 @@ Clone the `appmaker` repo, which will provide foundational appmaker components:
 git clone git@github.com:mozilla-appmaker/appmaker.git
 ```
 
-Your directory structure should look like this (more component repos can be cloned as siblings of `component-button`):
+Your directory structure should look like this (more component repos can be cloned as siblings of `{%= name %}`):
 ```
 mozilla-appmaker/
   ├── appmaker/
-  ├── component-button/
+  ├── {%= name %}/
   └── tools/
 ```
 
-Enter the `component-button` directory, and install npm dependencies
+Enter the `{%= name %}` directory, and install npm dependencies
 ```
-cd component-button
+cd {%= name %}
 npm install
 ```
 
@@ -64,7 +64,7 @@ Include this component in your appmaker app using Polymer's `<link>` import tag:
 
 In appmaker, this component is available using gh-pages:
 ```
-<link rel="import" href="/component-button">
+<link rel="import" href="/{%= name %}">
 ```
 
 # Testing
@@ -89,12 +89,12 @@ mozilla-appmaker/
           └── test.html       included by 'tests.js' as a working component environment for running tests
   ├── tools/
       ├── component-name.js   (ignore this file -- it's only here to make the framework simpler)
-      ├── harness-utils.css   some simple css for 
+      ├── harness-utils.css   some simple css for
       ├── harness-utils.js    (ignore this file -- it's only here to make the framework simpler)
       ├── iframe-utils.js     (ignore this file -- it's only here to make the framework simpler)
   ├── index.html              entry point for running tests in the browser
   ├── component.css           css for component definition
-  └── component.html          component definition 
+  └── component.html          component definition
 ```
 
 ## `index.html`
@@ -104,7 +104,7 @@ Entry point for in-browser testing.
 Implements a helper for running tests with iframes.
 
 #### `harnessUtils.createIframe(url, callback)`
-Spawns an 
+Spawns an
 ```
 iframeHandler = harnessUtils.createIframe('test/html/test.html', function (win, doc) {
   // do stuff with win/doc
@@ -117,7 +117,7 @@ Tests each broadcast published in `ceci.broadcasts`
 
 The options object takes two optional keys:
 * `execute` An object whose functions which will cause broadcasts to occur, corresponding to property names.
-* `check` Similarly, an object whose properties are names of broadcasts which will be executed by functions in the `execute` object. Each function is an event listener which will run once the corresponding broadcast event occurs. 
+* `check` Similarly, an object whose properties are names of broadcasts which will be executed by functions in the `execute` object. Each function is an event listener which will run once the corresponding broadcast event occurs.
 
 e.g.
 ```
@@ -140,7 +140,7 @@ check: {
 Tests each broadcast published in `ceci.broadcasts`
 
 The options object takes two optional keys:
-* `check` An object containing named functions which will be called once a listener has been used on the element. 
+* `check` An object containing named functions which will be called once a listener has been used on the element.
 * `execute` _Optional_. An object containing named functions which will cause a listener to be used on the element. If listener keys are left out of this object (or if `execute` is not issued at all), listeners will be automatically triggered. Use this option when a listener is called through unconventional means.
 
 e.g.
@@ -198,7 +198,7 @@ Most of this file doesn't need to be altered. However, if any filenames change, 
 This is the root testing file. It contains tests to run, and mechanisms to spawn iframes. e.g.
 ```
   var iframeHandler, buttonElement;
-  
+
   beforeEach(function (done) {
     iframeHandler = harnessUtils.createIframe('test/html/test.html', function (win, doc) {
       buttonElement = iframeHandler.document.querySelector('ceci-button');
@@ -211,7 +211,7 @@ This is the root testing file. It contains tests to run, and mechanisms to spawn
       chai.assert(buttonElement.ceci, 'Ceci descriptor exists.');
       iframeHandler.runIframeTest('Sanity Check', done);
     });
-    
+
     test('Broadcasts', function (done) {
       iframeHandler.testBroadcasts(buttonElement, done, {
         //see testBroadcasts in harndess-utils.js description below
