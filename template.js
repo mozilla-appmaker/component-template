@@ -13,22 +13,14 @@ exports.description = 'Create a Mozilla Appmaker component';
 exports.notes = '';
 
 // Template-specific notes to be displayed after question prompts.
-exports.after = 'You should now install project dependencies with _npm ' +
-  'install_. After that, you may execute project tasks with _grunt_. For ' +
-  'more information about installing and configuring Grunt, please see ' +
-  'the Getting Started guide:' +
-  '\n\n' +
-  'http://gruntjs.com/getting-started';
+exports.after = 'You should now install project dependencies with \n\n\t_npm ' +
+  'install_. \n\nAfter that, you can serve the component using \n\n\t_grunt serve_';
 
 // Any existing file or directory matching this wildcard will cause a warning.
 exports.warnOn = '*';
 
 // The actual init template.
 exports.template = function(grunt, init, done) {
-  var checkName = function(name) {
-    console.log("VALIDATING", name);
-  };
-
   var name = init.prompt('name');
   var defaultName = path.basename(process.cwd());
   if (defaultName.indexOf('component-') == 0) {
