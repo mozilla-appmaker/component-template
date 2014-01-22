@@ -10,8 +10,8 @@ To use it:
  # install npm if the node installation didn't do it already
  npm install -g grunt-init
  git clone https://github.com/mozilla-appmaker/component-template.git 
- mkdir component-my-new-thing # should start with 'component-'
- cd component-my-new-thing
+ mkdir my-new-thing
+ cd my-new-thing
  grunt-init ../component-template
  npm install
  #follow directions
@@ -21,6 +21,7 @@ To use it:
  #       http://localhost:9001/component.html
 ```
 
+[MOVE THIS TO ANOTHER FILE?]
 and when you're ready to commit to github, go to Github and:
 
  - create a repo
