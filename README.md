@@ -13,6 +13,7 @@ To use it:
  mkdir component-my-new-thing # should start with 'component-'
  cd component-my-new-thing
  grunt-init ../component-template
+ npm install
  #follow directions
  grunt serve-component
  # this will start a local server at http://localhost:9001

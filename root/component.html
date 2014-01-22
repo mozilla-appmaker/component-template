@@ -64,12 +64,12 @@
         this.super();
 
         var that = this;
-        this.$.{%= name %}.addEventListener('mousedown', function (e) {
+        this.$.{%= js_safe_name %}.addEventListener('mousedown', function (e) {
           var valueBefore = that.buttoncolor;
           if (that.buttonactivecolor) {
-            that.$.{%= name %}.style.backgroundColor = that.buttonactivecolor;
+            that.$.{%= js_safe_name %}.style.backgroundColor = that.buttonactivecolor;
             window.addEventListener('mouseup', function (e) {
-              that.$.{%= name %}.style.backgroundColor = valueBefore;
+              that.$.{%= js_safe_name %}.style.backgroundColor = valueBefore;
             }, false);
           }
         }, false);
@@ -78,13 +78,13 @@
         this.broadcast('click', this.getAttribute('value'));
       },
       labelChanged: function (oldValue, newValue) {
-        this.$.{%= name %}.innerHTML = newValue;
+        this.$.{%= js_safe_name %}.innerHTML = newValue;
       },
       textcolorChanged: function (oldValue, newValue) {
-        this.$.{%= name %}.style.color = newValue;
+        this.$.{%= js_safe_name %}.style.color = newValue;
       },
       buttoncolorChanged: function (oldValue, newValue) {
-        this.$.{%= name %}.style.backgroundColor = newValue;
+        this.$.{%= js_safe_name %}.style.backgroundColor = newValue;
       }
     });
   </script>
