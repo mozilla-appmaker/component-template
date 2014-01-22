@@ -1,7 +1,7 @@
-component-template
+Making a new Appmaker component from scratch
 ==================
 
-default template for grunt init
+With this repo, you should be able to quickly get the designer tool at appmaker.mozillalabs.com/designer to load your custom component.
 
 To use it:
 
@@ -15,24 +15,8 @@ To use it:
  grunt-init ../component-template
  npm install
  #follow directions
- grunt serve-component
+ grunt serve
  # this will start a local server at http://localhost:9001
  # go into appmaker, sign in, add a component giving the URL: 
  #       http://localhost:9001/component.html
-```
-
-[MOVE THIS TO ANOTHER FILE?]
-and when you're ready to commit to github, go to Github and:
-
- - create a repo
- - make a gh-pages branch
- - make the gh-pages branch be the default
- - remove the master branch
-
-and then commit your code to the gh-pages branch:
-
-```
- git add .
- git commit -m "first commit"
- git push origin 
 ```
