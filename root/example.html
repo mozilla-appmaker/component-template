@@ -2,23 +2,26 @@
 <html>
 <head>
   <title>Ceci Button Test App</title>
-  <link rel="import" href="../appmaker/public/ceci/ceci-app.html">
-  <link rel="import" href="../appmaker/public/ceci/ceci-card.html">
-  <link rel="import" href="../appmaker/public/ceci/ceci-element.html">
-  <link rel="import" href="../appmaker/public/ceci/ceci-element-base.html">
-  <link rel="import" href="../appmaker/public/ceci/ceci-broadcast.html">
-  <link rel="import" href="../appmaker/public/ceci/ceci-listen.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-app.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-card.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-element.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-element-base.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-broadcast.html">
+  <link rel="import" href="node_modules/appmaker/public/ceci/ceci-listen.html">
   <link rel="import" href="./component.html">
-  <script src="../appmaker/public/vendor/polymer/polymer.min.js"></script>
-  <script src="tools/dat.gui.min.js"></script>
-  <script src="tools/example.js"></script>
-  <link rel="stylesheet" href="tools/example.css">
+  <script src="../../base/node_modules/appmaker/public/vendor/requirejs/require.js"></script>
+  <script src="node_modules/ceci-support/requireConfig.js"></script>
+  <script src="node_modules/appmaker/public/vendor/platform/platform.js"></script>
+  <script src="node_modules/appmaker/public/vendor/polymer/polymer.js"></script>
+  <script src="node_modules/ceci-support/dat.gui.min.js"></script>
+  <script src="node_modules/ceci-support/example.js"></script>
+  <link rel="stylesheet" href="node_modules/ceci-support/example.css">
 </head>
 <body>
   <div id="app-container">
     <ceci-app>
       <ceci-card>
-        <ceci-button data-analyze id="ceci-button" value="you must construct additional pylons"></ceci-button>
+        <ceci-{%= name %} data-analyze id="ceci-button" value="you must construct additional pylons"></ceci-button>
       </ceci-card>
     </ceci-app>
   </div>
