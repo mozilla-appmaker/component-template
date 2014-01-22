@@ -1,33 +1,14 @@
-// use as:  grunt karma:dev for continuous testing or
-//          grunt karma:unit to just run the test once
-//          grunt test-server to display the test runner page
+// use as:  grunt serve to serve the component for the designer
+// TBD: bring back linting, jshint, etc.
 
 module.exports = function(grunt) {
   var path = require('path');
-  // grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // karma: {
-    //   unit: {
-    //     configFile: 'node_modules/ceci-support/karma.conf.js',
-    //     singleRun: true,
-    //     browsers: ['FirefoxNightly']
-    //   },
-    //   ci: {
-    //     configFile: 'node_modules/ceci-support/karma.conf.js',
-    //     singleRun: true,
-    //     browsers: ['Firefox']
-    //   },
-    //   dev: {
-    //     configFile: 'node_modules/ceci-support/karma.conf.js',
-    //     singleRun: false,
-    //     browsers: ['FirefoxNightly']
-    //   },
-    // },
     connect: {
       server: {
         options: {
@@ -59,15 +40,7 @@ module.exports = function(grunt) {
     },
   });
 
-  // grunt.registerTask('test-server', 'start web server for tests in browser', function() {
-  //   grunt.event.once('connect.server.listening', function(host, port) {
-  //     var specRunnerUrl = 'http://' + host + ':' + 9001+'/example.html';
-  //     grunt.log.writeln('test runner available at: ' + specRunnerUrl);
-  //     require('open')(specRunnerUrl);
-  //   });
 
-  //   grunt.task.run('connect:server');
-  // });
   grunt.registerTask('serve', 'start web server to use in designer', function() {
     grunt.event.once('connect.server.listening', function(host, port) {
       var specRunnerUrl = 'http://' + host + ':' + 9001;
@@ -77,10 +50,6 @@ module.exports = function(grunt) {
     grunt.task.run('connect:server');
   });
   grunt.registerTask('default', 'help message', function() {
-    // grunt.log.writeln('\n\nRun:\n\'grunt karma:dev\' for continuous testing');
-    // grunt.log.writeln('\'grunt karma:unit\' to just run the test once');
-    // grunt.log.writeln('\'grunt test-server\' to display the test runner page');
     grunt.log.writeln('\'grunt serve\' to display the test runner page');
   });
-  // grunt.registerTask('default', ['connect']);
 };
