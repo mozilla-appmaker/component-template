@@ -9,6 +9,51 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    csslint: {
+      lax: {
+        options: {
+          "adjoining-classes": false,
+          "box-model": false,
+          "box-sizing": false,
+          "bulletproof-font-face": false,
+          "compatible-vendor-prefixes": false,
+          "ids": false,
+          "important": false,
+          "outline-none": false,
+          "overqualified-elements": false,
+          "qualified-headings": false,
+          "regex-selectors": false,
+          "star-property-hack": false,
+          "underscore-property-hack": false,
+          "universal-selector": false,
+          "unique-headings": false,
+          "unqualified-attributes": false,
+          "vendor-prefix": false,
+          "zero-units": false,
+          "fallback-colors": false
+        },
+        src: [
+          "**/*.css",
+          '!node_modules/**'
+        ]
+      },
+    },
+    jshint: {
+      options: {
+        "-W054": true,  // The Function constructor is a form of eval
+        "-W069": true   // thing["property"] is better written in dot notation
+      },
+      files: [
+        "Gruntfile.js",
+        "**/*.js",
+        '!node_modules/**'
+      ]
+    },
+    inlinelint: {
+      html: ['**/*.html',
+        '!node_modules/**'
+      ]
+    },
     connect: {
       server: {
         options: {
@@ -40,6 +85,9 @@ module.exports = function(grunt) {
     },
   });
 
+  grunt.loadNpmTasks( "grunt-contrib-csslint" );
+  grunt.loadNpmTasks( "grunt-contrib-jshint" );
+  grunt.loadNpmTasks('grunt-lint-inline');
 
   grunt.registerTask('serve', 'start web server to use in designer', function() {
     grunt.event.once('connect.server.listening', function(host, port) {
@@ -52,4 +100,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', 'help message', function() {
     grunt.log.writeln('\'grunt serve\' to display the test runner page');
   });
+  grunt.registerTask( "default", [ "csslint", "jshint", "inlinelint"]);
 };
