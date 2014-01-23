@@ -14,7 +14,8 @@ exports.notes = '';
 
 // Template-specific notes to be displayed after question prompts.
 exports.after = 'You should now install project dependencies with \n\n\t_npm ' +
-  'install_. \n\nAfter that, you can serve the component using \n\n\t_grunt serve_';
+  'install_. \n\nAfter that, you can serve the component using \n\n\t_grunt serve_\n\n' +
+  'and check that your component is syntactically valid with \n\n\t_grunt_';
 
 // Any existing file or directory matching this wildcard will cause a warning.
 exports.warnOn = '*';
